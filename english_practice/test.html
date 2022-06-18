@@ -1,0 +1,67 @@
+<!-- <?php
+  $conn= new mysqli('localhost','root','as898989','dictionary');
+
+  function show_word($result){
+    while($row = mysqli_fetch_assoc($result)){
+      $en=$row['en_word'];
+      $kor=$row['kor_word'];
+      echo "<div class='list1'><div class='leftborder'>".$en."</div></div><div class='list2'>".$kor."</div><div>
+        <form action='delete.php' method='get'>
+          <input type='hidden' name='en' value='".$en."'>
+          <button class='delete_button'><i class='fa-solid fa-x' style=''></i></button>
+        </form>
+      </div>";
+    }
+  }
+
+  function create_word($conn,$en){
+    $sql = "INSERT INTO word_dic (en_word, kor_word, score) VALUES ('".$en."','뜻','0')";
+    mysqli_query($conn,$sql);
+  }
+?> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="dictionary_style.css?6">
+    <script src="https://kit.fontawesome.com/f7adf773fa.js" crossorigin="anonymous"></script>
+    <title>사전</title>
+  </head>
+  <body>
+    <!-- 검색 -->
+    <div class="search_bar">
+        <input class="searchbox" id="search-text" type="text" placeholder="write a word">
+        <button id="search-btn" onclick="search_word()">+</button>
+    </div>
+    <!-- 조건 -->
+    <div class="nav_bar">
+      <div class="navbox"><input type="checkbox" class="checkbox" name="">all</div>
+      <div class="navbox"><input type="checkbox" class="checkbox" name="">know</div>
+      <div class="navbox"><input type="checkbox" class="checkbox" name="">unknown</div>
+    </div>
+    <!-- 목록 -->
+    <div class="word_container">
+        <div class="list1">
+          <div class="leftborder">
+            exemple
+          </div>
+        </div>
+        <div class="list2">
+          예시
+        </div>
+    </div>
+    <!-- 메뉴 -->
+    <div class="menu_bar">
+      <div class="menubox">
+        <button type="button" class="menu_button"><a href="dictionary.php"><i class="fa-solid fa-book-bookmark"></i></a></button>
+      </div>
+      <div class="menubox">
+        <button type="button" class="menu_button"><a href="index_en.php"><i class="fa-solid fa-q"></i></a></button>
+      </div>
+      <div class="menubox">
+        <button type="button" class="menu_button"><a href="http://www.google.com"><i class="fa-solid fa-bars"></i></a></button>
+      </div>
+    </div>
+    <script src="dic.js"></script>
+  </body>
+</html>
